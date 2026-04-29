@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nic Napoleone — Senior AI Engineer & Content Creator</title>
+  <meta name="description" content="Nic Napoleone — Senior AI Engineer at OneStream, former Lead VR Developer at Virtual Repetitions, and gaming content creator NoodlesRuns." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #0d0f14;
+      --surface:   #151820;
+      --card:      #1c2030;
+      --border:    #2a2f42;
+      --accent:    #f5c518;
+      --accent2:   #38d9a9;
+      --text:      #e8eaf0;
+      --muted:     #8890a8;
+      --white:     #ffffff;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+    }
+
+    /* ── NAV ───────────────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2.5rem;
+      background: rgba(13, 15, 20, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    nav .logo {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 1.15rem;
+      color: var(--white);
+      text-decoration: none;
+      letter-spacing: -0.02em;
+    }
+
+    nav .logo span { color: var(--accent); }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    nav a:hover { color: var(--white); }
+
+    /* ── HERO ──────────────────────────────────────────── */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 0 clamp(1.5rem, 8vw, 10rem);
+      position: relative;
+      overflow: hidden;
+    }
+
+    #hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 80% 40%, rgba(245,197,24,0.12) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 40% at 10% 80%, rgba(56,217,169,0.08) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .hero-tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: rgba(245,197,24,0.1);
+      border: 1px solid rgba(245,197,24,0.25);
+      border-radius: 100px;
+      padding: 0.35rem 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(2.8rem, 7vw, 5.5rem);
+      font-weight: 700;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      color: var(--white);
+      max-width: 14ch;
+      margin-bottom: 1.25rem;
+    }
+
+    h1 .highlight {
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-sub {
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      color: var(--muted);
+      max-width: 50ch;
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.6rem;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #0d0f14;
+    }
+
+    .btn-primary:hover {
+      background: #d4a800;
+      transform: translateY(-1px);
+      box-shadow: 0 8px 24px rgba(245,197,24,0.35);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-1px);
+    }
+
+    /* ── SECTION COMMON ────────────────────────────────── */
+    section {
+      padding: 6rem clamp(1.5rem, 8vw, 10rem);
+    }
+
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+    }
+
+    .section-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: -0.02em;
+      margin-bottom: 3rem;
+    }
+
+    /* ── DIVIDER ───────────────────────────────────────── */
+    .divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 0 clamp(1.5rem, 8vw, 10rem);
+    }
+
+    /* ── EXPERIENCE ────────────────────────────────────── */
+    #experience { background: var(--surface); }
+
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .job-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .job-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    .job-card.current::before {
+      content: 'Current';
+      position: absolute;
+      top: 1.25rem;
+      right: 1.25rem;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent2);
+      background: rgba(56,217,169,0.1);
+      border: 1px solid rgba(56,217,169,0.25);
+      border-radius: 100px;
+      padding: 0.25rem 0.75rem;
+    }
+
+    .job-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.25rem;
+      margin-bottom: 1rem;
+    }
+
+    .job-logo {
+      width: 52px;
+      height: 52px;
+      border-radius: 12px;
+      background: var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      flex-shrink: 0;
+      overflow: hidden;
+    }
+
+    .job-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      padding: 6px;
+    }
+
+    .job-meta h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 0.2rem;
+    }
+
+    .job-meta .company {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .job-meta .company:hover { text-decoration: underline; }
+
+    .job-meta .dates {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-top: 0.15rem;
+    }
+
+    .job-bullets {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+      margin-top: 1.25rem;
+    }
+
+    .job-bullets li {
+      font-size: 0.9rem;
+      color: var(--muted);
+      padding-left: 1.25rem;
+      position: relative;
+    }
+
+    .job-bullets li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .job-bullets li a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .job-bullets li a:hover { text-decoration: underline; }
+
+    .job-links {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin-top: 1.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .job-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--muted);
+      text-decoration: none;
+      padding: 0.35rem 0.9rem;
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      transition: all 0.2s;
+    }
+
+    .job-link:hover {
+      color: var(--white);
+      border-color: var(--accent);
+    }
+
+    /* ── CONTENT CREATION ──────────────────────────────── */
+    #content .creator-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .creator-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.75rem;
+      transition: all 0.2s;
+      text-decoration: none;
+    }
+
+    .creator-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+    }
+
+    .creator-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+    }
+
+    .creator-icon.yt { background: rgba(255,0,0,0.12); }
+    .creator-icon.tt { background: rgba(255,255,255,0.06); }
+    .creator-icon.gdq { background: rgba(245,197,24,0.12); }
+
+    .creator-card h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 0.5rem;
+    }
+
+    .creator-card p {
+      font-size: 0.875rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .creator-card .card-link {
+      display: inline-block;
+      margin-top: 1rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    /* ── SKILLS ────────────────────────────────────────── */
+    #skills { background: var(--surface); }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .skill-group h4 {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent2);
+      margin-bottom: 0.75rem;
+    }
+
+    .skill-group ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .skill-group li {
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    /* ── CONTACT ───────────────────────────────────────── */
+    #contact {
+      text-align: center;
+    }
+
+    #contact .section-title { margin-bottom: 1rem; }
+
+    .contact-sub {
+      color: var(--muted);
+      font-size: 1rem;
+      max-width: 42ch;
+      margin: 0 auto 2.5rem;
+    }
+
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    /* ── FOOTER ────────────────────────────────────────── */
+    footer {
+      padding: 2rem clamp(1.5rem, 8vw, 10rem);
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    footer p {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    footer a { color: var(--muted); text-decoration: none; }
+    footer a:hover { color: var(--accent); }
+
+    /* ── RESPONSIVE ────────────────────────────────────── */
+    @media (max-width: 640px) {
+      nav ul { display: none; }
+      .job-card.current::before { position: static; display: block; width: fit-content; margin-bottom: 0.75rem; }
+      .job-header { flex-direction: column; gap: 0.75rem; }
+      footer { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#hero" class="logo">Nic <span>Napoleone</span></a>
+    <ul>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#content">Content</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <h1>Engineer.<br /><span class="highlight">Creator.</span><br />Builder.</h1>
+    <p class="hero-sub">
+      Senior AI Engineer at OneStream. Former Lead VR Developer at Virtual Repetitions. Gaming content creator behind <strong style="color:var(--text);">NoodlesRuns</strong> on YouTube &amp; TikTok.
+    </p>
+    <div class="hero-cta">
+      <a href="#experience" class="btn btn-primary">View My Work</a>
+      <a href="mailto:npnapoleone@gmail.com" class="btn btn-ghost">Get in Touch</a>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="section-label">Career</div>
+    <div class="section-title">Work Experience</div>
+
+    <div class="timeline">
+
+      <!-- OneStream -->
+      <div class="job-card current">
+        <div class="job-header">
+          <div class="job-logo"><img src="images/onestream-logo.png" alt="OneStream logo" /></div>
+          <div class="job-meta">
+            <h3>Senior AI Engineer</h3>
+            <a href="https://onestream.com" target="_blank" rel="noopener" class="company">OneStream</a>
+            <div class="dates">2024 – Present</div>
+          </div>
+        </div>
+        <ul class="job-bullets">
+          <li>Led development of multiple AI-powered solutions and drove process improvements across solution documentation practices to increase clarity and team efficiency.</li>
+          <li>Led new employee onboarding and cross-team enablement sessions, leveraging both existing and newly developed content to accelerate team readiness.</li>
+          <li>Drove 508 compliance initiatives to achieve WCAG 2.2 AA standards across all generally available solutions.</li>
+          <li>Owned solution development timelines and internal testing coordination.</li>
+        </ul>
+        <div class="job-links">
+          <a href="https://onestream.com" target="_blank" rel="noopener" class="job-link">🌐 onestream.com</a>
+        </div>
+      </div>
+
+      <!-- Virtual Repetitions -->
+      <div class="job-card">
+        <div class="job-header">
+          <div class="job-logo"><img src="images/vreps-logo.svg" alt="Virtual Repetitions logo" /></div>
+          <div class="job-meta">
+            <h3>Lead VR Developer</h3>
+            <a href="https://vreps.tech" target="_blank" rel="noopener" class="company">Virtual Repetitions</a>
+            <div class="dates">2021 – 2024</div>
+          </div>
+        </div>
+        <ul class="job-bullets">
+          <li>Developed cross-platform applications in the Unity game engine targeting Android Mobile, Android VR, iOS, macOS, WebGL, and Windows.</li>
+          <li>Integrated OpenXR for Meta Quest using early-access tooling including XR Interaction Toolkit and XR Hands, and led UI/UX design and iteration through an educational lens.</li>
+          <li>Collaborated daily with a globally distributed team, contributing to a fast-paced, cross-timezone workflow.</li>
+          <li>Grew the company's <a href="https://www.tiktok.com/@vrepsbasketball" target="_blank" rel="noopener">TikTok</a> presence from 18k to over 38k followers.</li>
+          <li>Built broadcast-specific tooling deployed <a href="https://x.com/CBSSportsCBB/status/1616858349886119937" target="_blank" rel="noopener">live during CBS March Madness</a> coverage.</li>
+        </ul>
+        <div class="job-links">
+          <a href="https://vreps.tech" target="_blank" rel="noopener" class="job-link">🌐 vreps.tech</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- CONTENT CREATION -->
+  <section id="content">
+    <div class="section-label">NoodlesRuns</div>
+    <div class="section-title">Content Creation</div>
+
+    <div class="creator-grid">
+
+      <a href="https://youtube.com/@noodlesruns" target="_blank" rel="noopener" class="creator-card">
+        <div class="creator-icon yt"><img src="images/noodlesruns-logo.jpg" alt="NoodlesRuns logo" style="width:100%;height:100%;object-fit:cover;border-radius:8px;" /></div>
+        <h3>YouTube — @NoodlesRuns</h3>
+        <p>Educational gaming content across multiple Call of Duty titles — tutorials, commentary, highlights, skits, and trending content ranging from 15 seconds to 30 minutes.</p>
+        <span class="card-link">Watch on YouTube →</span>
+      </a>
+
+      <a href="https://tiktok.com/@noodlesruns" target="_blank" rel="noopener" class="creator-card">
+        <div class="creator-icon tt"><img src="images/noodlesruns-logo.jpg" alt="NoodlesRuns logo" style="width:100%;height:100%;object-fit:cover;border-radius:8px;" /></div>
+        <h3>TikTok — @NoodlesRuns</h3>
+        <p>Short-form gaming content covering tutorials, skits, highlights, and trends across the Call of Duty franchise.</p>
+        <span class="card-link">Follow on TikTok →</span>
+      </a>
+
+      <a href="https://www.youtube.com/watch?v=B1KcXiqMAqM" target="_blank" rel="noopener" class="creator-card">
+        <div class="creator-icon gdq"><img src="images/Games_Done_Quick_2018_GDQ_wordmark_black.svg" alt="Games Done Quick logo" style="width:100%;height:100%;object-fit:contain;border-radius:8px;filter:invert(1);" /></div>
+        <h3>Games Done Quick</h3>
+        <p>Instructed a live audience of over 3,000 viewers on speedrunning techniques across a 3-hour broadcast on the official Games Done Quick Twitch channel.</p>
+        <span class="card-link">Watch the run →</span>
+      </a>
+
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="section-label">Toolkit</div>
+    <div class="section-title">Skills &amp; Technologies</div>
+
+    <div class="skills-grid">
+      <div class="skill-group">
+        <h4>AI</h4>
+        <ul>
+          <li>AI Agents &amp; Copilots</li>
+          <li>Prompt Engineering</li>
+          <li>Workflow Automation</li>
+          <li>AI-Powered Solutions</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <h4>Development</h4>
+        <ul>
+          <li>Unity (C#)</li>
+          <li>XR / VR / AR</li>
+          <li>OpenXR / XR Hands</li>
+          <li>WebGL</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <h4>Platforms</h4>
+        <ul>
+          <li>Android &amp; iOS</li>
+          <li>Meta Quest</li>
+          <li>Windows &amp; macOS</li>
+          <li>Web</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <h4>Creative</h4>
+        <ul>
+          <li>Video Production</li>
+          <li>Content Strategy</li>
+          <li>UI/UX Design</li>
+          <li>Social Media Growth</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="section-label">Say Hi</div>
+    <div class="section-title">Get In Touch</div>
+    <p class="contact-sub">
+      Open to new opportunities, collaborations, and conversations. My inbox is always open.
+    </p>
+    <div class="contact-links">
+      <a href="mailto:npnapoleone@gmail.com" class="btn btn-primary">✉ Email Me</a>
+      <a href="https://www.linkedin.com/in/nicolas-napoleone-8838a0134" target="_blank" rel="noopener" class="btn btn-ghost">LinkedIn</a>
+      <a href="https://youtube.com/@noodlesruns" target="_blank" rel="noopener" class="btn btn-ghost">YouTube</a>
+      <a href="https://tiktok.com/@noodlesruns" target="_blank" rel="noopener" class="btn btn-ghost">TikTok</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 Nic Napoleone. All rights reserved.</p>
+    <p>Built with HTML &amp; CSS · Hosted on <a href="https://pages.github.com" target="_blank" rel="noopener">GitHub Pages</a></p>
+  </footer>
+
+</body>
+</html>
